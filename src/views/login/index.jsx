@@ -18,6 +18,7 @@ export default class Login extends PureComponent {
   // }
 
   handleLogin = async () => {
+    console.log(111)
     if (!this.state.params.Name) {
       message.error('Please enter UserName')
     } else if (!this.state.params.Password) {
