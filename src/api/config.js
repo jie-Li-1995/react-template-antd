@@ -6,7 +6,7 @@ import { HashRouter } from 'react-router-dom'
 const router = new HashRouter()
 let request = 0
 
-// 创建axios实例
+// 创建 axios 实例
 const service = axios.create({
   baseURL: '/api/', // api的base_url
   timeout: 200000, // 请求超时时间
