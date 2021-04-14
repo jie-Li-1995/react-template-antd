@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Form, Input, Button, message, Radio } from 'antd'
 import './index.less'
-// import { loginApi } from '@/api'
-// import imgUrl from '../../assets/img/logo.jpg'
+import { loginApi } from '@/api'
 
 
 export default class Login extends PureComponent {
@@ -11,6 +10,7 @@ export default class Login extends PureComponent {
   }
 
   onFormLayoutChange = ({ layout }) => {
+    console.log(layout)
     this.setState({
       formLayout: layout
     })
