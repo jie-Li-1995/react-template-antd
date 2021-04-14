@@ -1,5 +1,6 @@
 const CracoLessPlugin = require('craco-less')
 const CracoAlias = require('craco-alias')
+const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
 
 module.exports = {
   publicPath: './',
@@ -30,6 +31,28 @@ module.exports = {
       }
     }
   ],
+  webpack: {
+    plugins: [
+      new SimpleProgressWebpackPlugin()
+    ]
+    // module: {
+    //   rules: [
+    //     {
+    //       test: /\.jpg|png|gif|bmp|jpeg$/,
+    //       use: [
+    //         {
+    //           loader: 'url-loader',
+    //           options: {
+    //             limit: 10240,
+    //             name: '[name].[ext]',
+    //             esModule: false
+    //           }
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // }
+  },
   babel: {
     // 支持装饰器模式语法
     plugins: [

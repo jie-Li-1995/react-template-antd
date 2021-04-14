@@ -25,13 +25,14 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "simple-progress-webpack-plugin": "^1.1.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
