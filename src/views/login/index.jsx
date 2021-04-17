@@ -1,22 +1,27 @@
 import React, { PureComponent } from 'react'
-import { Form, Input, Button, message, Radio } from 'antd'
+import { Form, Input, Button, message, Checkbox } from 'antd'
 import './index.less'
 import { loginApi } from '@/api'
 
 
 export default class Login extends PureComponent {
   state = {
-    formLayout: ''
+    name: '',
+    pwd: ''
   }
 
-  onFormLayoutChange = ({ layout }) => {
-    console.log(layout)
-    this.setState({
-      formLayout: layout
-    })
+  changeFormData = (label) => {
+    return (event) => {
+      this.setState(
+        { [label]: event.target.value },
+        () => {
+          console.log(this.state)
+        }
+      )
+    }
   }
 
-  render () {
+  render() {
     return (
       <div className="login">
         <section>
@@ -29,14 +34,14 @@ export default class Login extends PureComponent {
               onValuesChange={this.onFormLayoutChange}
             >
               <Form.Item label="Email">
-                <Input v-model="params.name" />
+                <Input onChange={this.changeFormData('name')} />
               </Form.Item>
               <Form.Item label="Password">
-                <Input v-model="params.pwd" type="password" />
+                <Input onChange={this.changeFormData('pwd')} type="password" />
               </Form.Item>
               <Button type="primary" onClick="login">Log in</Button>
               <div className="remember">
-                <el-checkbox v-model="checked">Remember me</el-checkbox>
+                <Checkbox v-model="checked">Remember me</Checkbox>
                 <router-link to="/forgetPassword">Forgot password？</router-link>
               </div>
             </Form>
