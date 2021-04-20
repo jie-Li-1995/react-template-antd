@@ -81,7 +81,7 @@ export default class Login extends PureComponent {
       <div className="login">
         <section>
           <div className="login-form">
-            <img src={require('../../assets/img/logo.jpg')} alt="" />
+            <img src={require('../../assets/img/logo.jpg').default} alt="" />
             <h1 className="title">Welcome</h1>
             <Form
               size="large"
