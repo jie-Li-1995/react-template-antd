@@ -20,15 +20,15 @@ export default class ContentList extends Component {
     const color = '#e60012'
     const GDPText = '人均GDP'
     return '<div class=\'clickTap\' style=\'width:230px\'> ' +
-      '<img src=\'http://deindex.h3c.com/cn/tres/WebUI/Deindex/images/2020/index/2020mapBoxBg2.png\' style=\'position: absolute;left:0;\'>' + '<span style=\'position:absolute;color: ' + color +
+      '<img src=\'http://deindex.h3c.com/cn/tres/WebUI/Deindex/images/2020/index/2020mapBoxBg2.png\' style=\'position: absolute;left:0;\'><span style=\'position:absolute;color: ' + color +
       ';top: 14px;left: 20px;font-size: 24px;font-weight: normal;\'>' + cityName +
-      '</span>' + '<span style=\'position:absolute;color: #000;top: 50px;left: 20px;font-size: 15px;line-height: 20px;\'>' + GDPText + '<br>排名</span>' +
+      '</span><span style=\'position:absolute;color: #000;top: 50px;left: 20px;font-size: 15px;line-height: 20px;\'>' + GDPText + '<br>排名</span>' +
       '<span style=\'position:absolute;color: #000;top: 92px;left: 20px;font-size: 22px;font-weight: normal;\'><span style=\'color:#ea2232;\'>' + rangeGDP +
       '</span>/<span style=\'font-size: 14px;font-weight: normal;\'>' + total + '</span></span>' +
       '<hr style=\'position: absolute;width: 4px;height: 60px;top: 36px;left:94px;padding: 0;border:none;border-left:1px solid rgb(113,113,113);display: block;\'>' +
       '<span style=\'position:absolute;color: #000;top: 50px;left: 112px;font-size: 15px;line-height: 20px;\'>中国城市数字<br>经济指数排名</span>' +
       '<span style=\'position:absolute;color: #000;top: 92px;left: 112px;font-size: 22px;font-weight: normal;\'><span style=\'color:#ea2232;\'>' + rangeGCI +
-      '</span>/<span style=\'font-size: 14px;font-weight: normal;\'>' + total + '</span></span>' + '<span style=\'display: block;position: absolute;width: 190px;height: 1px;background: rgb(113,113,113);left:50%;top: 127px;margin-left: -95px;\'></span><span style=\'position:absolute;color: #000;width:100%;text-align: center;top:130px;font-size: 14px\'><a href=\'/2020/Insight/cityinfo?city=' + cityName + '\' class=\'goinfo\' target=\'_blank\'>详情<span style=\'color: #e12138;\'> ></span></a></span></div>'
+      '</span>/<span style=\'font-size: 14px;font-weight: normal;\'>' + total + '</span></span><span style=\'display: block;position: absolute;width: 190px;height: 1px;background: rgb(113,113,113);left:50%;top: 127px;margin-left: -95px;\'></span><span style=\'position:absolute;color: #000;width:100%;text-align: center;top:130px;font-size: 14px\'><a href=\'/2020/Insight/cityinfo?city=' + cityName + '\' class=\'goinfo\' target=\'_blank\'>详情<span style=\'color: #e12138;\'> ></span></a></span></div>'
   }
 
   initEcharts = () => {
