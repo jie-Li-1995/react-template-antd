@@ -2,13 +2,14 @@ import axios from 'axios'
 import store from '@/store'
 import { changeLoading } from '@/store/modules/loading/actions'
 import { HashRouter } from 'react-router-dom'
+import { message } from 'antd'
 
 const router = new HashRouter()
 let request = 0
 
 // 创建 axios 实例
 const service = axios.create({
-  baseURL: '/api/', // api的base_url
+  baseURL: '/cms/admin', // api的base_url
   timeout: 200000, // 请求超时时间
   withCredentials: true // 选项表明了是否是跨域请求
 })
@@ -36,6 +37,9 @@ service.interceptors.response.use(
     if (request === 0) {
       setTimeout(() => {
         store.dispatch(changeLoading(false))
+        if (res.data.success !== true) {
+          message.error(res.data.message || '')
+        }
       }, 800)
     }
     return res

@@ -1,10 +1,9 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { Form, Input, Button, message, Checkbox } from 'antd'
 import './index.less'
 import { loginApi } from '@/api'
 
-
-export default class Login extends PureComponent {
+export default class Login extends Component {
   state = {
     checked: false,
     params: {
@@ -13,20 +12,10 @@ export default class Login extends PureComponent {
     }
   }
 
-  changeFormData = (label) => {
-    return (event) => {
-      this.setState(
-        ({ params }) => ({
-          params: {
-            ...params,
-            [label]: event.target.value
-          }
-        }),
-        () => {
-          console.log(this.state.params)
-        }
-      )
-    }
+  onFormValueChange = (changeVal, allVal) => {
+    this.setState({
+      params: { ...allVal }
+    })
   }
 
   changeState = (label) => {
@@ -43,7 +32,7 @@ export default class Login extends PureComponent {
   }
 
   login = async () => {
-    const res = await loginApi.login(this.state)
+    const res = await loginApi.login(this.state.params)
     if (res.data.success) {
       window.sessionStorage.userInfo.set(res.data.data)
       if (this.checked) {
@@ -58,25 +47,15 @@ export default class Login extends PureComponent {
         message.warning('Please change your password when you log in for the first time')
       }
       if (res.data.data.firstLogin || res.data.data.passwordExpired) {
-        this.$router.push({ name: 'firstLogin' })
+        this.props.history.push({ pathname: '/test' })
       } else {
-        this.$router.push({ name: 'siteSelect' })
+        this.props.history.push({ pathname: '/test' })
       }
     }
   }
 
-  // 
-  getSnapshotBeforeUpdate() {
-    console.log(1111)
-    return 'liu_qihao'
-  }
-  componentDidUpdate(prevProps, prevStata, snapshot) {
-    console.log(prevProps);
-    console.log(prevStata);
-    console.log(snapshot);
-  }
-
-  render() {
+  render () {
+    const { params } = this.state
     return (
       <div className="login">
         <section>
@@ -84,20 +63,27 @@ export default class Login extends PureComponent {
             <img src={require('../../assets/img/logo.jpg').default} alt="" />
             <h1 className="title">Welcome</h1>
             <Form
+              initialValues={params}
               size="large"
               layout="vertical"
-              onValuesChange={this.onFormLayoutChange}
+              onValuesChange={this.onFormValueChange}
             >
-              <Form.Item label="Email">
-                <Input onChange={this.changeFormData('name')} />
+              <Form.Item label="Email" name="name">
+                <Input />
               </Form.Item>
-              <Form.Item label="Password">
-                <Input onChange={this.changeFormData('pwd')} type="password" />
+              <Form.Item label="Password" name="pwd">
+                <Input />
               </Form.Item>
-              <Button type="primary" onClick="login">Log in</Button>
+              <Button type="primary" onClick={this.login}>
+                Log in
+              </Button>
               <div className="remember">
-                <Checkbox onChange={this.changeState('checked')}>Remember me</Checkbox>
-                <router-link to="/forgetPassword">Forgot password？</router-link>
+                <Checkbox onChange={this.changeState('checked')}>
+                  Remember me
+                </Checkbox>
+                <router-link to="/forgetPassword">
+                  Forgot password？
+                </router-link>
               </div>
             </Form>
           </div>

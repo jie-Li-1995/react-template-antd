@@ -5,7 +5,10 @@ module.exports = {
   publicPath: './',
   devServer: {
     public: '0.0.0.0:8090',
-    port: 8090 // 端口号
+    port: 8090, // 端口号
+    open: false, // 配置自动启动浏览器
+    hotOnly: true, // 热更新
+    hot: true
   },
   plugins: [
     {
