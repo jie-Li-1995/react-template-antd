@@ -23,7 +23,8 @@ export default class CheckList extends Component {
   }
 
   // 在render之前调用，state已更新
-  getSnapshotBeforeUpdate () {//很关键的，我们获取当前rootNode的scrollHeight，传到componentDidUpdate 的参数perScrollHeight
+  getSnapshotBeforeUpdate () {
+    // 很关键的，我们获取当前rootNode的scrollHeight，传到componentDidUpdate 的参数perScrollHeight
     return this.rootNode.scrollHeight
   }
 
@@ -34,7 +35,8 @@ export default class CheckList extends Component {
   }
 
 
-  handleMessage () {//用于增加msg
+  handleMessage () {
+    // 用于增加msg
     this.setState((pre) => ({
       messages: [`msg: ${pre.messages.length}`, ...pre.messages]
     }))

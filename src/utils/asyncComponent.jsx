@@ -5,7 +5,7 @@ const asyncComponent = LazyComponent => {
   return class extends Component {
     render () {
       return (
-        <Suspense fallback={<Spin />}>
+        <Suspense fallback={<Spin className='ccw-spin' />}>
           <LazyComponent />
         </Suspense>
       )

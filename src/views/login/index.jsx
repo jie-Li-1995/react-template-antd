@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Input, Button, message, Checkbox } from 'antd'
+import { Link } from 'react-router-dom'
 import './index.less'
 import { loginApi } from '@/api'
 
@@ -7,8 +8,8 @@ export default class Login extends Component {
   state = {
     checked: false,
     params: {
-      name: '',
-      pwd: ''
+      name: 'jing.tang@ccwonline.com',
+      pwd: '123456'
     }
   }
 
@@ -34,8 +35,8 @@ export default class Login extends Component {
   login = async () => {
     const res = await loginApi.login(this.state.params)
     if (res.data.success) {
-      window.sessionStorage.userInfo.set(res.data.data)
-      if (this.checked) {
+      window.sessionStorage.userInfo = res.data.data
+      if (this.state.checked) {
         window.localStorage.loginName = this.params.name
       } else {
         window.localStorage.loginName = ''
@@ -47,9 +48,9 @@ export default class Login extends Component {
         message.warning('Please change your password when you log in for the first time')
       }
       if (res.data.data.firstLogin || res.data.data.passwordExpired) {
-        this.props.history.push({ pathname: '/test' })
+        this.props.history.push({ pathname: '/layout' })
       } else {
-        this.props.history.push({ pathname: '/test' })
+        this.props.history.push({ pathname: '/layout' })
       }
     }
   }
@@ -72,7 +73,7 @@ export default class Login extends Component {
                 <Input />
               </Form.Item>
               <Form.Item label="Password" name="pwd">
-                <Input />
+                <Input type="password" />
               </Form.Item>
               <Button type="primary" onClick={this.login}>
                 Log in
@@ -81,9 +82,9 @@ export default class Login extends Component {
                 <Checkbox onChange={this.changeState('checked')}>
                   Remember me
                 </Checkbox>
-                <router-link to="/forgetPassword">
+                <Link to="/test">
                   Forgot password？
-                </router-link>
+                </Link>
               </div>
             </Form>
           </div>

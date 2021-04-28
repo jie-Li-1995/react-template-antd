@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 const { SubMenu } = Menu
 
-class CCWSider extends React.Component{
+class CCWSider extends React.PureComponent {
   handleClick = (item) => {
     const pathname = `${this.props.match.path}/${item.keyPath.reverse().join('/')}`
     if (this.props.location.pathname !== pathname)
@@ -13,16 +13,20 @@ class CCWSider extends React.Component{
   }
 
   render () {
-    const PathArr = this.props.location.pathname.split('/')
-    const defaultSelectedKeys = [PathArr[2], PathArr[3]]
-    const defaultOpenKeys = [PathArr[2]]
+    let selectedKeys = []
+    let openKeys = []
+    const PathArr = this.props.location.pathname.slice(1).split('/')
+    if (PathArr.length === 3) {
+      selectedKeys = [PathArr[1], PathArr[2]]
+      openKeys = [PathArr[1]]
+    }
     return (
       <div className='CCWSider'>
         <Menu
           onClick={this.handleClick}
           style={{ width: '100%', height: '100%' }}
-          defaultSelectedKeys={defaultSelectedKeys}
-          defaultOpenKeys={defaultOpenKeys}
+          selectedKeys={selectedKeys}
+          openKeys={openKeys}
           mode="inline"
         >
           <SubMenu key="check" icon={<AppstoreOutlined />} title="Check">
