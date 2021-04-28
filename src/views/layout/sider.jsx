@@ -6,24 +6,32 @@ import { withRouter } from 'react-router-dom'
 const { SubMenu } = Menu
 
 class CCWSider extends React.PureComponent {
+  state = {
+    openKeys: ['check']
+  }
+
   handleClick = (item) => {
     const pathname = `${this.props.match.path}/${item.keyPath.reverse().join('/')}`
     if (this.props.location.pathname !== pathname)
       this.props.history.push({ pathname, state: { day: 'Friday' } })
   }
 
+  handleChange = (openKeys) => {
+    if (openKeys.length !== 0) {
+      this.setState({ openKeys: [openKeys[1]] })
+    }
+  }
+
   render () {
     let selectedKeys = []
-    let openKeys = []
     const PathArr = this.props.location.pathname.slice(1).split('/')
-    if (PathArr.length === 3) {
-      selectedKeys = [PathArr[1], PathArr[2]]
-      openKeys = [PathArr[1]]
-    }
+    selectedKeys = [PathArr[1], PathArr[2]]
+    const { openKeys } = this.state
     return (
       <div className='CCWSider'>
         <Menu
           onClick={this.handleClick}
+          onOpenChange={this.handleChange}
           style={{ width: '100%', height: '100%' }}
           selectedKeys={selectedKeys}
           openKeys={openKeys}
@@ -33,15 +41,7 @@ class CCWSider extends React.PureComponent {
             <Menu.Item key="checkList">Check List</Menu.Item>
             <Menu.Item key="CreateCheck">Create Check</Menu.Item>
           </SubMenu>
-          <SubMenu
-            key="content"
-            title={
-              <p>
-                <SettingOutlined />
-                <span>Content Management</span>
-              </p>
-            }
-          >
+          <SubMenu key="content" icon={<SettingOutlined />} title="Content Management">
             <Menu.Item key="contentList">Content List</Menu.Item>
             <Menu.Item key="createContent">Create Content</Menu.Item>
           </SubMenu>
