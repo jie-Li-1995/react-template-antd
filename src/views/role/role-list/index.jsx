@@ -18,24 +18,30 @@ export default class RoleList extends React.Component {
       title: 'Role Status',
       dataIndex: 'statusText',
       key: 'statusText',
-      width: 200
+      width: 200,
+      ellipsis: true
     },
     {
       title: 'Role',
       dataIndex: 'name',
       key: 'name',
-      width: 200
+      width: 200,
+      ellipsis: true
     },
     {
       title: 'Site',
       dataIndex: 'site',
       key: 'site',
-      width: 150
+      width: 150,
+      ellipsis: true
     },
     {
       title: 'Description',
       dataIndex: 'detailedDescribe',
-      key: 'detailedDescribe'
+      key: 'detailedDescribe',
+      ellipsis: {
+        showTitle: true
+      }
     },
     {
       title: 'Operation',
@@ -128,22 +134,29 @@ export default class RoleList extends React.Component {
     this.setState(({ page }) => ({ tableData, page: { ...page, total } }))
   }
 
+  handleCurrentChange = (pageIndex) => {
+    this.setState(({ page }) => ({ page: { ...page, pageIndex } }), this.tableList)
+  }
+
   render () {
-    const { tableData } = this.state
+    const { tableData, page } = this.state
     return (
       <div className="role-list">
         <div className="common-tool">
           <Input />
           <Button type="primary" onClick={this.addRole}>Add</Button>
         </div>
-        <Table rowKey="id" columns={this.columns} dataSource={tableData} />
-        <div className="tac mt20">
-          {/*<Pagination*/}
-          {/*  onChange={this.handleCurrentChange}*/}
-          {/*  current={this.page.pageIndex}*/}
-          {/*  pageSize={this.page.pageSize}*/}
-          {/*  total={100} />*/}
-        </div>
+        <Table
+          rowKey="id"
+          pagination={{
+            position: ['bottomCenter'],
+            total: page.total,
+            current: page.pageIndex,
+            pageSize: page.pageSize,
+            onChange: this.handleCurrentChange
+          }}
+          columns={this.columns}
+          dataSource={tableData} />
       </div>
     )
   }

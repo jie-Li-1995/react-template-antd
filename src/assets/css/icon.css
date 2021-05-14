@@ -1,0 +1,118 @@
+.ccw-icon1 {
+  background-position: 0 0;
+}
+
+.ccw-icon2 {
+  background-position: 0 -22px;
+}
+
+.ccw-icon3 {
+  background-position: 0 -44px;
+}
+
+.ccw-icon4 {
+  background-position: 0 -66px;
+}
+
+.ccw-icon5 {
+  background-position: 0 -88px;
+}
+
+.ccw-icon6 {
+  background-position: 0 -110px;
+}
+
+.ccw-icon7 {
+  background-position: 0 -132px;
+}
+
+.ccw-icon8 {
+  background-position: 0 -154px;
+}
+
+.ccw-icon9 {
+  background-position: 0 -176px;
+}
+
+.ccw-icon10 {
+  background-position: 0 -198px;
+}
+
+.ccw-icon31 {
+  background-position: 0 -220px;
+}
+
+.ccw-icon32 {
+  background-position: 0 -242px;
+}
+
+.ccw-icon11 {
+  background-position: -22px 0;
+}
+
+.ccw-icon12 {
+  background-position: -22px -22px;
+}
+
+.ccw-icon13 {
+  background-position: -22px -44px;
+}
+
+.ccw-icon14 {
+  background-position: -22px -66px;
+}
+
+.ccw-icon15 {
+  background-position: -22px -88px;
+}
+
+.ccw-icon16 {
+  background-position: -22px -110px;
+}
+
+.ccw-icon17 {
+  background-position: -22px -132px;
+}
+
+.ccw-icon18 {
+  background-position: -22px -154px;
+}
+
+.ccw-icon19 {
+  background-position: -22px -176px;
+}
+
+.ccw-icon20 {
+  background-position: -22px -198px;
+}
+
+.ccw-icon21 {
+  background-position: -22px -220px;
+}
+
+.ccw-icon22 {
+  background-position: -22px -242px;
+}
+
+.ccw-icon23 {
+  background-position: 0px -264px;
+}
+
+.ccw-icon24 {
+  background-position: -22px -264px;
+}
+
+[class^="ccw-icon"], [class*=" ccw-icon"] {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-image: url("../../assets/icon/icons.png");
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  outline: none;
+  background-size: 44px 293px;
+  margin-right: 10px;
+}
