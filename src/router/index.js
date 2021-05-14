@@ -11,6 +11,10 @@ const CreateCheck = lazy(() => import('@/views/check/createCheck'))
 const content = lazy(() => import('@/views/content'))
 const contentList = lazy(() => import('@/views/content/contentList'))
 const createContent = lazy(() => import('@/views/content/createContent'))
+//
+const role = lazy(() => import('@/views/role'))
+const roleList = lazy(() => import('@/views/role/role-list'))
+const roleCreate = lazy(() => import('@/views/role/role-create'))
 
 const routes = [
   {
@@ -26,6 +30,44 @@ const routes = [
     path: 'layout',
     component: layout,
     children: [
+      {
+        path: 'role',
+        name: 'role',
+        component: role,
+        redirect: { name: 'roleList' },
+        children: [
+          {
+            path: 'roleList',
+            name: 'roleList',
+            meta: {
+              name: 'role',
+              icon: 'ccw-icon19',
+              title: 'Role'
+            },
+            component: roleList
+          },
+          {
+            path: 'roleCreate',
+            name: 'roleCreate',
+            meta: {
+              name: 'role',
+              icon: 'ccw-icon19',
+              title: 'Role'
+            },
+            component: roleCreate
+          },
+          {
+            path: 'roleEdit/:id',
+            name: 'roleEdit',
+            meta: {
+              name: 'role',
+              icon: 'ccw-icon19',
+              title: 'Role'
+            },
+            component: roleCreate
+          }
+        ]
+      },
       {
         path: 'check',
         component: check,

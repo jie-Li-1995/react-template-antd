@@ -18,21 +18,20 @@ service.interceptors.request.use(
   config => {
     if (request === 0) store.dispatch(changeLoading(true))
     request++
-    config.headers.AuthToken = window.sessionStorage.token || ''
+    config.headers.token = window.sessionStorage.token || ''
     return config
   },
   err => {
-    console.log('请求失败')
     return Promise.reject(err)
   })
 
 // res拦截器
 service.interceptors.response.use(
   res => {
-    const token = res.data.Token || ''
+    const token = res.headers.token || ''
     const State = res.data.StatusCode
     if (token) window.sessionStorage.token = token
-    if (State === 403) router.history.push({ pathname: '/test', state: { day: 'Friday' } })
+    if (State === 403) router.history.push({ pathname: '/login' })
     request--
     if (request === 0) {
       setTimeout(() => {

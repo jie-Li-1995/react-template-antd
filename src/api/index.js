@@ -1,7 +1,4 @@
-import {
-  post,
-  get
-} from './request'
+import { post, get } from './request'
 
 export const loginApi = {
   login: post('/login'),
@@ -13,4 +10,17 @@ export const loginApi = {
   changePwd: post('/modifyPassword'),
   uploadUserImage: post('/uploadUserImage'),
   changeBaseInfo: post('/modifyLoginInfo')
+}
+
+export const roleApi = {
+  list: get('/getAllRoleList'),
+  activeList: get('/getActiveRoleList'),
+  getSiteList: get('/getSiteList'),
+  getSiteDir: get('/getSiteDir'),
+  getMenuPageList: get('/getMenuPageList'),
+  delete: get('/deleteRole'),
+  edit: post('/modifyRole'),
+  item: get('/queryRole'),
+  add: post('/addRole'),
+  changeStatus: post('/modifyRoleStatus')
 }

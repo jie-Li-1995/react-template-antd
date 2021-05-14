@@ -23,9 +23,8 @@ class CCWSider extends React.PureComponent {
   }
 
   render () {
-    let selectedKeys = []
     const PathArr = this.props.location.pathname.slice(1).split('/')
-    selectedKeys = [PathArr[1], PathArr[2]]
+    let selectedKeys = [PathArr[1], PathArr[2]]
     const { openKeys } = this.state
     return (
       <div className='CCWSider'>
@@ -44,6 +43,10 @@ class CCWSider extends React.PureComponent {
           <SubMenu key="content" icon={<SettingOutlined />} title="Content Management">
             <Menu.Item key="contentList">Content List</Menu.Item>
             <Menu.Item key="createContent">Create Content</Menu.Item>
+          </SubMenu>
+          <SubMenu key="role" icon={<SettingOutlined />} title="role">
+            <Menu.Item key="roleList">Role List</Menu.Item>
+            <Menu.Item key="roleCreate">Role Create</Menu.Item>
           </SubMenu>
         </Menu>
       </div>
