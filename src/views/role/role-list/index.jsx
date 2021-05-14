@@ -138,11 +138,12 @@ export default class RoleList extends React.Component {
     this.handleCurrentChange(1)
   }
 
-  changeState = (label) => {
+  changeState = (label, type = 'value') => {
     return (event) => {
+      console.log(event)
       this.setState(
         () => ({
-          [label]: event.target.value || event.target.checked
+          [label]: event.target[type]
         })
       )
     }
