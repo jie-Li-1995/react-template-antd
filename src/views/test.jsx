@@ -14,19 +14,19 @@ class Test extends Component {
     console.log(this.props)
   }
 
-  getSnapshotBeforeUpdate (prevProps, prevState) {
-    // 两者的参数是不相同的，
-    // 而getDerivedStateFromProps是一个静态函数，
-    // 也就是这个函数不能通过this访问到class的属性，也并不推荐直接访问属性。
-    // 而是应该通过参数提供的nextProps以及prevState来进行判断，根据新传入的props来映射到state。
-  }
+  // getSnapshotBeforeUpdate (prevProps, prevState) {
+  //   // 两者的参数是不相同的，
+  //   // 而getDerivedStateFromProps是一个静态函数，
+  //   // 也就是这个函数不能通过this访问到class的属性，也并不推荐直接访问属性。
+  //   // 而是应该通过参数提供的nextProps以及prevState来进行判断，根据新传入的props来映射到state。
+  // }
 
-  static getDerivedStateFromProps (nextProps, prevState) {
-    // 两者的参数是不相同的，
-    // 而getDerivedStateFromProps是一个静态函数，
-    // 也就是这个函数不能通过this访问到class的属性，也并不推荐直接访问属性。
-    // 而是应该通过参数提供的nextProps以及prevState来进行判断，根据新传入的props来映射到state。
-  }
+  // static getDerivedStateFromProps (nextProps, prevState) {
+  //   // 两者的参数是不相同的，
+  //   // 而getDerivedStateFromProps是一个静态函数，
+  //   // 也就是这个函数不能通过this访问到class的属性，也并不推荐直接访问属性。
+  //   // 而是应该通过参数提供的nextProps以及prevState来进行判断，根据新传入的props来映射到state。
+  // }
 
   add = () => {
     let Number = this.refs.MySelect.state.value * 1

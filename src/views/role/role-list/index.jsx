@@ -134,6 +134,20 @@ export default class RoleList extends React.Component {
     this.setState(({ page }) => ({ tableData, page: { ...page, total } }))
   }
 
+  search = () => {
+    this.handleCurrentChange(1)
+  }
+
+  changeState = (label) => {
+    return (event) => {
+      this.setState(
+        () => ({
+          [label]: event.target.value || event.target.checked
+        })
+      )
+    }
+  }
+
   handleCurrentChange = (pageIndex) => {
     this.setState(({ page }) => ({ page: { ...page, pageIndex } }), this.tableList)
   }
@@ -143,7 +157,10 @@ export default class RoleList extends React.Component {
     return (
       <div className="role-list">
         <div className="common-tool">
-          <Input />
+          <Input
+            onChange={this.changeState('roleOrSite')}
+            onPressEnter={this.search}
+          />
           <Button type="primary" onClick={this.addRole}>Add</Button>
         </div>
         <Table
