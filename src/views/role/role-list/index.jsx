@@ -16,6 +16,7 @@ class RoleList extends React.Component {
     },
     tableData: []
   }
+  currentStatus = ''
 
   beforeChangeStatus = (id, status) => {
     Modal.confirm({
