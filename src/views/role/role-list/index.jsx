@@ -1,8 +1,12 @@
 import React from 'react'
-import { Input, Button, Pagination, Table, Modal, message } from 'antd'
+import { Input, Button, Table, Modal, message } from 'antd'
 import { roleApi } from '@/api'
+import Page from '@/components/mix/page'
+import columns from './columns'
 
-export default class RoleList extends React.Component {
+@Page
+class RoleList extends React.Component {
+  columns = columns
   state = {
     roleOrSite: '',
     page: {
@@ -11,67 +15,6 @@ export default class RoleList extends React.Component {
       total: 0
     },
     tableData: []
-  }
-
-  columns = [
-    {
-      title: 'Role Status',
-      dataIndex: 'statusText',
-      key: 'statusText',
-      width: 200,
-      ellipsis: true
-    },
-    {
-      title: 'Role',
-      dataIndex: 'name',
-      key: 'name',
-      width: 200,
-      ellipsis: true
-    },
-    {
-      title: 'Site',
-      dataIndex: 'site',
-      key: 'site',
-      width: 150,
-      ellipsis: true
-    },
-    {
-      title: 'Description',
-      dataIndex: 'detailedDescribe',
-      key: 'detailedDescribe',
-      ellipsis: {
-        showTitle: true
-      }
-    },
-    {
-      title: 'Operation',
-      dataIndex: 'Operation',
-      key: 'Operation',
-      width: 150,
-      render: (_, { id, accountStatus }) => {
-        return (
-          <div className="operation">
-            <i className="ccw-font-edit-active" onClick={() => this.editRole(id)} />
-            {
-              accountStatus
-                ? <i
-                  className="ccw-font-inactive"
-                  onClick={() => this.beforeChangeStatus(id, false)}
-                />
-                : <i
-                  className="ccw-font-active"
-                  onClick={() => this.changeStatus(id, true)}
-                />
-            }
-            <i className="ccw-font-delete-active" onClick={() => this.deleteUser(id)} />
-          </div>
-        )
-      }
-    }
-  ]
-
-  componentDidMount () {
-    this.tableList()
   }
 
   beforeChangeStatus = (id, status) => {
@@ -134,13 +77,8 @@ export default class RoleList extends React.Component {
     this.setState(({ page }) => ({ tableData, page: { ...page, total } }))
   }
 
-  search = () => {
-    this.handleCurrentChange(1)
-  }
-
   changeState = (label, type = 'value') => {
     return (event) => {
-      console.log(event)
       this.setState(
         () => ({
           [label]: event.target[type]
@@ -149,12 +87,9 @@ export default class RoleList extends React.Component {
     }
   }
 
-  handleCurrentChange = (pageIndex) => {
-    this.setState(({ page }) => ({ page: { ...page, pageIndex } }), this.tableList)
-  }
-
   render () {
     const { tableData, page } = this.state
+    console.log(this)
     return (
       <div className="role-list">
         <div className="common-tool">
@@ -180,3 +115,4 @@ export default class RoleList extends React.Component {
   }
 }
 
+export default RoleList
