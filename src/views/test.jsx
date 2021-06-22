@@ -70,7 +70,7 @@ class Test extends Component {
   render () {
     return (
       <div>
-        <Input defaultValue={1} ref="MySelect" />
+        <Input defaultValue={2} ref="MySelect" />
         <h1>{this.props.counter}</h1>
         <Button onClick={this.add}>+</Button>
         <Button onClick={this.cut}>—</Button>
