@@ -9,7 +9,6 @@ import './App.less'
 @connect(
   state => ({ loading: state.loading })
 )
-
 class App extends React.Component {
   render () {
     return (

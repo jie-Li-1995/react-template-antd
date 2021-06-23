@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import CCWFooter from './footer'
 import CCWHeader from './header'
 import CCWSider from './sider'
 import './index.less'
