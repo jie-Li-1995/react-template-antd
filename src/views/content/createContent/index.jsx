@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Input, Button } from 'antd'
 
 export default function CreateContent() {
   const [name, setName] = useState('小李')
+  const inputRef = useRef()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,17 +16,22 @@ export default function CreateContent() {
     }
   }, [name]) // 数组表示 effect 依赖的变量，只有当这个变量发生改变之后才会重新执行 efffect 函数
 
-  const changeName = () => {
-    setName('initData2')
+  const changeName = (val) => {
+    setName(val)
+    inputRef.current.focus()
+  }
+
+  const inputName = (e) => {
+    changeName(e.target.value)
   }
 
   return (
     <div>
-      <Input value={name} />
+      <Input value={name} ref={inputRef} onChange={inputName} />
       <Button onClick={() => setName('initData')} type="primary">
         initData
       </Button>
-      <Button onClick={changeName}>initData2</Button>
+      <Button onClick={() => changeName('initData2')}>initData2</Button>
     </div>
   )
 }
