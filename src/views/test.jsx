@@ -6,10 +6,10 @@ import { increment, decrement } from '@/store/modules/counter/actions'
 @connect((state) => ({ counter: state.counter }), { increment, decrement })
 class Test extends Component {
   state = {
-    name: 'test'
+    name: 'test',
   }
 
-  componentDidMount () {
+  componentDidMount() {
     console.log(this.state)
     console.log(this.props)
   }
@@ -44,8 +44,8 @@ class Test extends Component {
         ({ params }) => ({
           params: {
             ...params,
-            [label]: event.target.value
-          }
+            [label]: event.target.value,
+          },
         }),
         () => {
           console.log(this.state.params)
@@ -58,7 +58,7 @@ class Test extends Component {
     return (event) => {
       this.setState(
         () => ({
-          [label]: event.target.value || event.target.checked
+          [label]: event.target.value || event.target.checked,
         }),
         () => {
           console.log(this.state)
@@ -67,7 +67,7 @@ class Test extends Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <div>
         <Input defaultValue={2} ref="MySelect" />
