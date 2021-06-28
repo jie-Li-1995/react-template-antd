@@ -13,7 +13,7 @@ export default function CreateContent() {
       console.log('该函数会在组件卸载和更新时调用')
       clearTimeout(timer)
     }
-  })
+  }, [name]) // 数组表示 effect 依赖的变量，只有当这个变量发生改变之后才会重新执行 efffect 函数
 
   const changeName = () => {
     setName('initData2')
