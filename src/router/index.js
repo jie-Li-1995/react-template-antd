@@ -74,11 +74,21 @@ const routes = [
         children: [
           {
             path: 'checkList',
-            component: checkList
+            component: checkList,
+            meta: {
+              name: 'role',
+              icon: 'ccw-icon19',
+              title: 'Role'
+            }
           },
           {
             path: 'CreateCheck',
-            component: CreateCheck
+            component: CreateCheck,
+            meta: {
+              name: 'role',
+              icon: 'ccw-icon19',
+              title: 'Role'
+            },
           }
 
         ]
@@ -89,11 +99,21 @@ const routes = [
         children: [
           {
             path: 'contentList',
-            component: contentList
+            component: contentList,
+            meta: {
+              name: 'role',
+              icon: 'ccw-icon19',
+              title: 'Role'
+            },
           },
           {
             path: 'createContent',
-            component: createContent
+            component: createContent,
+            meta: {
+              name: 'role',
+              icon: 'ccw-icon19',
+              title: 'Role'
+            },
           }
         ]
       }

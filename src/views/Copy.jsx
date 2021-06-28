@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 
-class Copy extends Component {
-  changeName = () => {}
+export default class Copy extends Component {
   render() {
-    return <div></div>
+    return (
+      <div>
+        
+      </div>
+    )
   }
 }
-
-export default Copy

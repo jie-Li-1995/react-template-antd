@@ -19,7 +19,6 @@ class CCWHeader extends React.Component {
     }
   }
 
-
   render () {
     this.findRoute()
     const route = this.route
