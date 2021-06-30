@@ -16,6 +16,8 @@ const role = lazy(() => import('@/views/role'))
 const roleList = lazy(() => import('@/views/role/role-list'))
 const roleCreate = lazy(() => import('@/views/role/role-create'))
 
+const contextPage = lazy(() => import('@/views/context'))
+
 const routes = [
   {
     exact: true,
@@ -25,6 +27,10 @@ const routes = [
   {
     path: 'test',
     component: test
+  },
+  {
+    path: 'context',
+    component: contextPage
   },
   {
     path: 'layout',
