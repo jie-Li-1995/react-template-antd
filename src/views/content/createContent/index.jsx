@@ -17,6 +17,7 @@ export default function CreateContent() {
   }, [name]) // 数组表示 effect 依赖的变量，只有当这个变量发生改变之后才会重新执行 efffect 函数
 
   const changeName = (val) => {
+    console.log(1111)
     setName(val)
     inputRef.current.focus()
   }

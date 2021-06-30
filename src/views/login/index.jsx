@@ -37,7 +37,7 @@ export default class Login extends Component {
     if (res.data.success) {
       window.sessionStorage.userInfo = res.data.data
       if (this.state.checked) {
-        window.localStorage.loginName = this.params.name
+        window.localStorage.loginName = this.state.params.name
       } else {
         window.localStorage.loginName = ''
       }
