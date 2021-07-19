@@ -22,10 +22,6 @@ class App extends React.Component {
       if (item.level === 1) {
         result.push(treeItem)
       } else {
-        console.log('-------------------------')
-        console.log(item)
-        console.log(itemMap)
-        console.log(itemMap[item.parent])
         itemMap[item.parent].children.push(treeItem)
       }
     }
@@ -46,9 +42,9 @@ class App extends React.Component {
       const parent = data[level - 1]
       return { path, name, level, parent, component, meta }
     })
-    console.log(routes.sort(function (a, b) {
+    routes.sort(function (a, b) {
       return a.level - b.level
-    }))
+    })
     console.log(this.arrayToTree(routes))
   }
 
