@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { increment, decrement } from '@/store/modules/counter/actions'
 
 @connect((state) => ({ counter: state.counter }), { increment, decrement })
-class Test extends Component {
+class Te extends Component {
   state = {
     name: 'test',
   }
@@ -79,4 +79,4 @@ class Test extends Component {
   }
 }
 
-export default Test
+export default Te

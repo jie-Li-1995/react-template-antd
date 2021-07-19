@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 // login
 const Login = lazy(() => import('@/views/login'))
-const test = lazy(() => import('@/views/test'))
+const test = lazy(() => import('@/views/te'))
 const layout = lazy(() => import('@/views/layout'))
 //
 const check = lazy(() => import('@/views/check'))
@@ -94,7 +94,7 @@ const routes = [
               name: 'role',
               icon: 'ccw-icon19',
               title: 'Role'
-            },
+            }
           }
 
         ]
@@ -110,7 +110,7 @@ const routes = [
               name: 'role',
               icon: 'ccw-icon19',
               title: 'Role'
-            },
+            }
           },
           {
             path: 'createContent',
@@ -119,7 +119,7 @@ const routes = [
               name: 'role',
               icon: 'ccw-icon19',
               title: 'Role'
-            },
+            }
           }
         ]
       }
