@@ -17,9 +17,7 @@ class CCWSider extends React.PureComponent {
   }
 
   handleChange = (openKeys) => {
-    if (openKeys.length !== 0) {
-      this.setState({ openKeys: [openKeys[1]] })
-    }
+    this.setState({ openKeys: [openKeys[1]] })
   }
 
   render () {
