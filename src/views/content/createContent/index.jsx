@@ -2,7 +2,7 @@ import React, { memo, useState, useEffect, useRef, useMemo, useCallback } from '
 import { Input, Button } from 'antd'
 
 export default function CreateContent () {
-  const [testName, setTestName] = useState('test')
+  const [testName] = useState('test')
   const [name, setName] = useState('小李')
   const inputRef = useRef(null)
 
